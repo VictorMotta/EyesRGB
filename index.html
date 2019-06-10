@@ -512,10 +512,28 @@
 				canvas.height = ALTURA;
 				canvas.style.border = "1px solid #000";
 
-				ctx = canvas.getContext("2d");
-				document.body.appendChild(canvas);
-				document.addEventListener("touchstart", clique);
+				
+				
+				if( navigator.userAgent.match(/Android/i) 
+ 					|| navigator.userAgent.match(/webOS/i)
+ 					|| navigator.userAgent.match(/iPhone/i)
+  					|| navigator.userAgent.match(/iPad/i)
+  					|| navigator.userAgent.match(/iPod/i)
+  					|| navigator.userAgent.match(/BlackBerry/i)
+ 				 	|| navigator.userAgent.match(/Windows Phone/i)
+ 				){
+    					ctx = canvas.getContext("2d");
+					document.body.appendChild(canvas);
+					document.addEventListener("touchstart", clique);
+  				}
+ 				else {
+    					ctx = canvas.getContext("2d");
+					document.body.appendChild(canvas);
+					document.addEventListener("mousedown", clique);
+  				}
 
+				
+				
 				estadoAtual = estados.jogar;
 				record = localStorage.getItem("record");
 
