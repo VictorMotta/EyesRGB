@@ -722,7 +722,11 @@
   					|| navigator.userAgent.match(/BlackBerry/i)
  				 	|| navigator.userAgent.match(/Windows Phone/i)
  				){
- 				alert("VIRE O SMARTPHONE DE LADO!!");
+ 				$(document).ready(function(){
+ 				 $('body').bind('orientationchange', function(event) {
+   				 alert('orientationchange: '+ event.orientation);
+  				});
+				});
   				}
 
 			//inicializa o jogo
